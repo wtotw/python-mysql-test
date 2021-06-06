@@ -1,0 +1,20 @@
+version: "3"
+services:
+  python:
+    build: python
+    container_name: python
+    tty: true
+    depends_on:
+      - mysql
+    volumes:
+      - "../src:/app"
+  mysql:
+    build: mysql
+    container_name: mysql
+    hostname: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/charset.cnf:/etc/mysql/conf.d/charset.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: password
