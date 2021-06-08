@@ -9,5 +9,6 @@ RUN apt-get update && \
     locale-gen ja_JP.UTF-8
 ENV LC_ALL ja_JP.UTF-8
 
-RUN pip install pipenv && \
+RUN pip install --upgrade pip && \
+    pip install pipenv && \
     pipenv install
